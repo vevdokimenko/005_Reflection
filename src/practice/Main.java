@@ -16,9 +16,9 @@ public class Main {
         Cat cat = new Cat();
         cat.sayMeow();
 
-        Class<Cat> classCat = Cat.class;
+        Class<Cat> catClass = Cat.class;
 
-        Field[] catFields = classCat.getDeclaredFields();
+        Field[] catFields = catClass.getDeclaredFields();
         for (Field field : catFields) {
             System.out.println(
                     "Field name: " + field.getName() +
@@ -26,12 +26,12 @@ public class Main {
             );
         }
 
-        Constructor<?>[] catConstructors = classCat.getDeclaredConstructors();
+        Constructor<?>[] catConstructors = catClass.getDeclaredConstructors();
         for (Constructor<?> constructor : catConstructors) {
             System.out.println("Constructor: " + constructor.toString());
         }
 
-        Method[] catMethods = classCat.getDeclaredMethods();
+        Method[] catMethods = catClass.getDeclaredMethods();
         for (Method method : catMethods) {
             System.out.println("Method: " + method.toString());
         }
@@ -39,11 +39,11 @@ public class Main {
         System.out.println("=============================");
 
         try {
-            Field catName = classCat.getDeclaredField("name");
+            Field catName = catClass.getDeclaredField("name");
             catName.setAccessible(true);
             catName.set(cat, "Vaska");
 
-            Field catAge = classCat.getDeclaredField("age");
+            Field catAge = catClass.getDeclaredField("age");
             catAge.setAccessible(true);
             catAge.set(cat, 2);
         } catch (NoSuchFieldException | IllegalAccessException e) {
