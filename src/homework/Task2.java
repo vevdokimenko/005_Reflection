@@ -38,7 +38,6 @@ public class Task2 {
                 }
             }
         }
-
     }
 
     private static void printClassInfo(String name) {
